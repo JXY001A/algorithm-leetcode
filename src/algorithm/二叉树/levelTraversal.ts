@@ -26,15 +26,15 @@ export function levelOrder(root: TreeNode | null): number[][] {
     }
     while(queue.length>0) {
       let currentLevelNodeCount = queue.length;
-      const temlpResult:number[] = [];
+      const tempResult:number[] = [];
       while(currentLevelNodeCount>0) {
         const node = queue.shift();
-        temlpResult.push(node?.val!);
+        tempResult.push(node?.val!);
         node?.left && queue.push(node?.left);
         node?.right && queue.push(node?.right);
         currentLevelNodeCount-=1;
       }
-      result.push(temlpResult);
+      result.push(tempResult);
     }
     return result;
 };
