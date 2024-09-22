@@ -19,22 +19,22 @@ interface TreeNode {
 }
 
 export function levelOrder(root: TreeNode | null): number[][] {
-    const result:number[][] = [];
-    const queue:TreeNode[] = [];
-    if(root) {
-      queue.push(root);
+  const result:number[][] = [];
+  const queue:TreeNode[] = [];
+  if(root) {
+    queue.push(root);
+  }
+  while(queue.length>0) {
+    let currentLevelNodeCount = queue.length;
+    const tempResult:number[] = [];
+    while(currentLevelNodeCount>0) {
+      const node = queue.shift();
+      tempResult.push(node?.val!);
+      node?.left && queue.push(node?.left);
+      node?.right && queue.push(node?.right);
+      currentLevelNodeCount-=1;
     }
-    while(queue.length>0) {
-      let currentLevelNodeCount = queue.length;
-      const tempResult:number[] = [];
-      while(currentLevelNodeCount>0) {
-        const node = queue.shift();
-        tempResult.push(node?.val!);
-        node?.left && queue.push(node?.left);
-        node?.right && queue.push(node?.right);
-        currentLevelNodeCount-=1;
-      }
-      result.push(tempResult);
-    }
-    return result;
+    result.push(tempResult);
+  }
+  return result;
 };
