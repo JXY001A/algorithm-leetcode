@@ -1,4 +1,4 @@
- 
+
 export  function reverseWords(s: string): string {
   let chars = s.trim().split('').reverse();
   chars = removeExtraSpaces(chars);
