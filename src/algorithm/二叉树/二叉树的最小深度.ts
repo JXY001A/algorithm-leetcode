@@ -39,7 +39,7 @@ function minDepth(root: TreeNode | null): number {
   let depth = 0;
   const queue:TreeNode[] = [];
   if(root) {
-     queue.push(root); 
+    queue.push(root); 
   }
 
   while(queue.length) {
