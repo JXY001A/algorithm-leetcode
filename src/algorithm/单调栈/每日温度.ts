@@ -5,22 +5,21 @@
 // 就可以将每个元素右侧第一个大于它的索引找到
 
 export function dailyTemperatures(temperatures: number[]): number[] {
-  const result:number[] = Array(temperatures.length).fill(0);
-  if(temperatures.length < 2) return result;
+  const n = temperatures.length;
+  const result = new Array(n).fill(0);
+  const stack: number[] = [];
 
-  const stack:number[] = [0];
-  for(let i=1;i<temperatures.length;i+=1) {
-    let stackTopIndex = stack[stack.length-1];
-    if(stackTopIndex !==undefined && temperatures[i] > temperatures[stackTopIndex]) {
-      while(stack.length>0 && temperatures[i] > temperatures[stackTopIndex]) {
-        result[stackTopIndex] = i - stackTopIndex;
-        stack.pop();
-        stackTopIndex = stack[stack.length-1];
-      }
-      stack.push(i);
-    }else {
-      stack.push(i);
+  for (let i = 0; i < n; i++) {
+    // 当栈不为空且当前温度大于栈顶温度时，更新结果
+    while (
+      stack.length > 0 && 
+      temperatures[i] > temperatures[stack[stack.length - 1]]
+    ) {
+      const prevIndex = stack.pop()!;
+      result[prevIndex] = i - prevIndex;
     }
+    stack.push(i);
   }
+
   return result;
-};
+}
