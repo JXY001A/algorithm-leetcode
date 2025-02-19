@@ -17,7 +17,7 @@ export function findTargetSumWays(nums: number[], target: number):numner {
 
   
   
-  const dp = new Array(capacity + 1);
+  const dp:number[] = new Array(capacity + 1).fill(0);
   dp[0] = 1;
   // dp[j] += dp[j-nums[i]]
   for(let i=0;i<nums.length;i+=1) {
