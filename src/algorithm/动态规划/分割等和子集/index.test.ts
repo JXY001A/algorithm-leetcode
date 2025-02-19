@@ -7,4 +7,9 @@ describe('canPartition', () => {
     test("等和子集2", () => {
       expect(canPartition([1, 2, 3, 5])).toBe(false);
     });
+
+
+    test("等和子集2", () => {
+      expect(canPartition([1,5,10,6])).toBe(true);
+    });
 });
