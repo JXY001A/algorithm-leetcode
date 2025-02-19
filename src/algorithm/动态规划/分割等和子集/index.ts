@@ -32,7 +32,7 @@ export function canPartitionPro(nums: number[]): boolean {
   const dp = new Array(capacity+1).fill(0);
   for(let i=0;i<nums.length;i+=1) {
     for(let j=capacity;j>=nums[i];j-=1) {
-        dp[i][j] = Math.max(dp[j],dp[j-nums[i-1]] + nums[i-1]);
+        dp[j] = Math.max(dp[j],dp[j-nums[i]] + nums[i]);
     }
   }
   
