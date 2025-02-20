@@ -1,4 +1,4 @@
-export function findTargetSumWays(nums: number[], target: number):numner {
+export function findTargetSumWays(nums: number[], target: number):number {
   // 思路：
   // 总的来讲就是需要将 nums 数组中的数值分成两组，然后相加；第一组的和减去第二组的和等于目标 target;
   // 设第一组和为 leftSum；第二组和为 rightSum; 设总和为：sum;
