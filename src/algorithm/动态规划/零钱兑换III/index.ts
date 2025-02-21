@@ -4,7 +4,7 @@ export const coinChange = (coins:number[],amout:number):number=>{
     // dp[i][j] 表示: 前 i 个物品组合中刚好填满容积为 j 的容器，中所用物品数量最少的个数
     // dp[i][j] = Math.min(dp[i-1][j],dp[i][j-coins[i]]+1);
 
-    if(amout<0) {
+    if(amout<=0) {
         return 0;
     }
     // TODO: 求的是最小值所以初始化必须设置最大值，方面 min 函数判断
