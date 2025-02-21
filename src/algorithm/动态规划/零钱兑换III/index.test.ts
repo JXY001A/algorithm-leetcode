@@ -10,7 +10,7 @@ describe("零钱兑换III",()=>{
 	});
     
     test("coinChange 3", () => {
-		expect(coinChange([1],-)).toBe(0);
+		expect(coinChange([1],-1)).toBe(0);
 	});
 
     test("coinChange 4", () => {
