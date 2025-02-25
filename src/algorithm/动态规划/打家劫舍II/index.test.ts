@@ -2,7 +2,7 @@ import { rob } from "./index";
 
 describe("打家劫舍II",()=>{
     test("rob 1", () => {
-        expect(rob([2,3,2])).toBe(2);
+        expect(rob([2,3,2])).toBe(3);
     }); 
 
     test("rob 2", () => {
