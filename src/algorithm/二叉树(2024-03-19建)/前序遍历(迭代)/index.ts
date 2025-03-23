@@ -6,7 +6,7 @@ type Node = {
 
 export const preOrderTraversal = (root:Node)=>{
     const stack:Node[] =  [];
-    const result:number[] = [root.val];
+    const result:number[] = [];
     let node:Node|null = root;
 
     while(stack.length>0 || node) {
@@ -19,4 +19,6 @@ export const preOrderTraversal = (root:Node)=>{
             node = tempNode.right;
         }
     }
+
+    return result;
 }
