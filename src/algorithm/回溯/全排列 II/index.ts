@@ -14,7 +14,7 @@ const permuteUniqueRecursive = (nums:number[],path:number[],used:boolean[],resul
     }
 
     for(let i=0;i<nums.length;i+=1) {
-        // nums[i] 与 nums[i-1] 相同，但是 nums[i-1] 没有被使用，说明同层已经有排列用过了（可尝试运行立理解） 
+        // nums[i] 与 nums[i-1] 相同，但是 nums[i-1] 没有被使用，说明同层已经有排列用过了（可尝试运行理解） 
         if(i>=0 && nums[i] === nums[i-1] && used[i-1] === false) {
             continue;
         }
