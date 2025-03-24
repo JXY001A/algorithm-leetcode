@@ -7,7 +7,7 @@ function Node(val:number|null,left:any,right:any) {
 }
 
 export const buildBinaryTree = (vals:(number|null)[])=>{
-    if(vals.length ===0) return vals;
+    if(vals.length ===0) return null;
     const rootVal = vals.shift()!;
     const root = Node(rootVal,null,null);
     const stack = [root];
