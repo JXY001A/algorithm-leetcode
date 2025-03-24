@@ -3,20 +3,20 @@ type Node = {
     left: Node | null,
     right: Node | null,
 };
-export const inOrderTraversal = (root:Node) =>{
+export const postOrderTraversal = (root:Node) =>{
     const result:number[] = [];
-    let node:Node|null = root;
-    const stack:Node[] = [];
-
-    while(stack.length > 0 || node) {
+    const stack:Node[]= [];
+    let node:Node | null = root;
+    while(stack.length>0 || node) {
         if(node) {
             stack.push(node);
-            node = node.left;
+            result.unshift(node.val);
+            node = node.right;
         }else {
             const tempNode = stack.pop()!;
-            result.push(tempNode.val);
-            node = tempNode.right;
+            node = tempNode.left;
         }
     }
+
     return result;
 }
