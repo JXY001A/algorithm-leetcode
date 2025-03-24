@@ -5,6 +5,16 @@ type TreeNode = {
     right: TreeNode | null,
 };
 
-export default function invertTree(root: TreeNode | null): TreeNode | null {
+export function invertTree(root: TreeNode | null): TreeNode | null {
+    invertTreeRecursive(root);
     return root; 
 };
+
+const invertTreeRecursive = (node:TreeNode|null)=>{
+    if(!node) return;
+    invertTreeRecursive(node.left);
+    invertTreeRecursive(node.right);
+    const tempNode = node.left;
+    node.left = node.right;
+    node.right = tempNode;
+}
