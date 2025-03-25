@@ -6,9 +6,15 @@ describe('左叶子之和', () => {
         expect(sumOfLeftLeaves(root)).toEqual(24);
     });
 
-    test("sumOfLeftLeaves 1", () => {
+    
+    test("sumOfLeftLeaves 2", () => {
         const root:any = buildBinaryTree([1]);
         expect(sumOfLeftLeaves(root)).toEqual(0);
+    });
+
+    test("sumOfLeftLeaves 3", () => {
+        const root:any = buildBinaryTree([1,2,3,4,5]);
+        expect(sumOfLeftLeaves(root)).toEqual(4);
     });
     
 });
