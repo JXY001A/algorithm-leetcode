@@ -5,5 +5,17 @@ type TreeNode = {
 };
 
 export function getMinimumDifference(root: TreeNode | null): number {
-    return 1;
+    let minDiff=Number.MAX_SAFE_INTEGER;
+    let preVal;
+    const minimumDifference = (node:TreeNode|null)=>{
+        if(!node) return;
+        minimumDifference(node.left);
+        if(typeof preVal === "number") {
+            minDiff = Math.min(minDiff,node.val - preVal);    
+        }
+        preVal=node.val;
+        minimumDifference(node.right);
+    }
+    minimumDifference(root);
+    return minDiff;
 };
