@@ -13,5 +13,9 @@ describe('二叉搜索树中的众数', () => {
         expect(findMode(root)).toEqual(target);
     });
 
-    
+    test("findMode 3", () => {
+        const root:any = buildBinaryTree([1,null,2]);
+        const target:any = [1,2]; 
+        expect(findMode(root)).toEqual(target);
+    }); 
 });
