@@ -6,9 +6,22 @@ describe('路径总和', () => {
         expect(hasPathSum(root,22)).toEqual(true);
     });
 
-    test("hasPathSum 1", () => {
+    test("hasPathSum 2", () => {
         const root:any = buildBinaryTree([1,2,3]);
-        expect(hasPathSum(root)).toEqual(5);
+        expect(hasPathSum(root,5)).toEqual(false);
     });
-    
+
+    test("hasPathSum 3", () => {
+        const root:any = buildBinaryTree([]);
+        expect(hasPathSum(root,0)).toEqual(false);
+    });
+    test("hasPathSum 4", () => {
+        const root:any = buildBinaryTree([1,2]);
+        expect(hasPathSum(root,0)).toEqual(false);
+    });
+
+    test("hasPathSum 5", () => {
+        const root:any = buildBinaryTree([-2,null,-3]);
+        expect(hasPathSum(root,-5)).toEqual(true);
+    });
 });
