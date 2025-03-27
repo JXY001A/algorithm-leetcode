@@ -1,6 +1,6 @@
 import { convertBST } from './index';
 import { buildBinaryTree } from '../构建二叉树(按层级)/index';
-describe('二叉搜索树中的插入操作', () => {
+describe('把二叉搜索树转换为累加树', () => {
     test("convertBST 1", () => {
         const root = buildBinaryTree([4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]) as any;
         const target = buildBinaryTree([30,36,21,36,35,26,15,null,null,null,33,null,null,null,8]) as any;
