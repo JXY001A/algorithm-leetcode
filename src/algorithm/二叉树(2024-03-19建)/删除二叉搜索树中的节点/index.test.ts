@@ -18,6 +18,11 @@ describe('删除二叉搜索树中的节点', () => {
         const target = buildBinaryTree([]) as any;
         expect(deleteNode(root,0)).toEqual(target);
     });
-    
+
+    test("deleteNode 4", () => {
+        const root = buildBinaryTree([0]) as any;
+        const target = buildBinaryTree([]) as any;
+        expect(deleteNode(root,0)).toEqual(target);
+    });    
 });
 
