@@ -13,9 +13,15 @@ describe('二叉搜索树中的插入操作', () => {
         expect(insertIntoBST(root,25)).toEqual(target);
     });
 
-    test("insertIntoBST 2", () => {
+    test("insertIntoBST 3", () => {
         const root = buildBinaryTree([4,2,7,1,3,null,null,null,null,null,null]) as any;
         const target = buildBinaryTree([4,2,7,1,3,5]) as any;
+        expect(insertIntoBST(root,5)).toEqual(target);
+    });
+
+    test("insertIntoBST 4", () => {
+        const root = buildBinaryTree([]) as any;
+        const target = buildBinaryTree([5]) as any;
         expect(insertIntoBST(root,5)).toEqual(target);
     });
     
