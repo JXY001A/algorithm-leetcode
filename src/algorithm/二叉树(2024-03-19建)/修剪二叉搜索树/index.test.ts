@@ -12,7 +12,5 @@ describe('修剪二叉搜索树', () => {
         const target = buildBinaryTree([3,2,null,1]) as any;
         expect(trimBST(root,1,3)).toEqual(target);
     });
-
-    
 });
 
