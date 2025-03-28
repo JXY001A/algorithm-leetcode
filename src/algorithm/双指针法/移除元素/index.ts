@@ -1,9 +1,9 @@
 export function removeElement(nums: number[], val: number): number {
-    let slow = 0;
-    for(let fast=0;fast<nums.length;fast+=1) {
-        if(nums[fast] !== val) {
-            nums[slow++] = nums[fast];
+    let slowIndex = 0;
+    for(let fastIndex=0;fastIndex<nums.length;fastIndex+=1) {
+        if(nums[fastIndex] !== val) {
+            nums[slowIndex++] = nums[fastIndex];
         }
     }
-    return slow;
+    return slowIndex;
 };
