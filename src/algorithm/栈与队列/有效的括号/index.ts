@@ -1,4 +1,4 @@
-function isValid(s: string): boolean {
+export function isValid(s: string): boolean {
     if(!s) return false;
     const stack:string[] = [];
 
