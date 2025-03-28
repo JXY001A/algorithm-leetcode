@@ -11,4 +11,9 @@ describe("逆波兰表达式求值",()=>{
   test('evalRPN 3',()=>{
     expect(evalRPN(["10","6","9","3","+","-11","*","/","*","17","+","5","+"])).toBe(22);
   })
+
+  test('evalRPN 4',()=>{
+    expect(evalRPN(["18"])).toBe(18);
+  })
+  
 });
