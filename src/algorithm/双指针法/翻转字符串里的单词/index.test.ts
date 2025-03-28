@@ -1,7 +1,9 @@
 import {reverseWords } from './index';
-describe("替换空格",()=>{
+describe("翻转字符串里的单词",()=>{
   test('reverseWords 1',()=>{
     const s = "the sky is blue";
+    // "eulb si yks eht"
+    // "blue is sky the"
     const target = "blue is sky the";
     expect(reverseWords(s)).toEqual(target);
   }); 
