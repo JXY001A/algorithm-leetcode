@@ -3,14 +3,14 @@ export  function fourSum(nums: number[], target: number): number[][] {
     const sortedNums = nums.sort((a,b)=>a-b);
     
     for(let i=0;i<sortedNums.length;i+=1) {
-        if(sortedNums[i]>target && sortedNums[i]>0) return result;
+        if(sortedNums[i]>target && sortedNums[i]>=0) return result;
         if(i>0 && sortedNums[i] === sortedNums[i-1]) {
             continue;
         }
 
         for(let j=i+1;j<sortedNums.length;j+=1) {
-            if(sortedNums[i] + sortedNums[j]>target && sortedNums[i] + sortedNums[j]>0) {
-                return result;
+            if(sortedNums[i] + sortedNums[j]>target && sortedNums[i] + sortedNums[j]>=0) {
+                break;
             }
             if(j>i+1 && sortedNums[j] === sortedNums[j-1]) {
                 continue;
