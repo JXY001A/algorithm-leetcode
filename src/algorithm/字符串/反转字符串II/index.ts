@@ -15,7 +15,8 @@ export function reverseStr(s: string, k: number): string {
     const sArray = s.split('');
     for(let i=0;i<sArray.length;i+=(2*k)) {
         // 满足条件  1，2
-        // TODO: 注意⚠️ 索引通过加数字增量的时候记得减1，转换为索引
+        // TODO: 注意⚠️ 索引通过加数字增量的时候记得减1，转换为索引。
+        // 截取数量的时候每一个索引位置都算一个，按间距的话会超出一个，故必须减1。
         if(i+k-1 < sArray.length) {
             reverse(sArray,i,i+k-1);
         }else {
