@@ -6,6 +6,6 @@ describe("四数之和II",()=>{
     });
 
     test('fourSum 2',()=>{
-        expect(fourSum([2,2,2,2,2],8)).toEqual([[2,2,2,2,2]]);
+        expect(fourSum([2,2,2,2,2],8)).toEqual([[2,2,2,2]]);
     });
 });
