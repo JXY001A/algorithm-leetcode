@@ -10,6 +10,6 @@ describe("赎金信",()=>{
     });
 
     test('canConstruct 3',()=>{
-        expect(canConstruct('aaa','aab')).toEqual(true);
+        expect(canConstruct('aa','aab')).toEqual(true);
     });
 });
