@@ -7,14 +7,17 @@ export  function threeSum(nums: number[]): number[][] {
         let right = numsSorted.length-1;
         while(left < right) {
             const sum = numsSorted[i] + numsSorted[left] + numsSorted[right];
-            if(sum === 0) {
+            if(sum>0) {
+                right-=1;
+            }else if(sum<0) {
+                left+=1;
+            }else {
                 result.push([numsSorted[i] ,numsSorted[left] ,numsSorted[right]]);
+                while(left < right && numsSorted[left] === numsSorted[left+1]) left+=1;
+                while(left < right && numsSorted[right] === numsSorted[right-1]) right-=1;
+                left+=1;
+                right-=1;
             }
-            while(left < right && numsSorted[left] === numsSorted[left+1]) left+=1;
-            while(left < right && numsSorted[right] === numsSorted[right-1]) right-=1;
-
-            left+=1;
-            right-=1;
         }
     }
     return result;
