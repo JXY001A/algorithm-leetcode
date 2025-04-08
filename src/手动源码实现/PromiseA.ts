@@ -17,18 +17,100 @@
         status:string = PENDING;
 
         _resolve (val:any) {
+            const run = ()=>{
+                if(this.status !== PENDING) return;
+                this.status = FULFILLED;
+                const fulfilled = (value)=>{
+                    let cb= this.fulfillQueues.shift();
+                    while(cb) {
+                        cb(value);
+                        cb= this.fulfillQueues.shift();
+                    }
+                }
+                const rejected = (error)=>{
+                    let cb= this.rejectQueues.shift();
+                    while(cb) {
+                        cb(error);
+                        cb = this.rejectQueues.shift();
+                    }
+                }
 
+                if(val instanceof MyPromiseA) {
+                    val.then((v)=>{
+                        this.value = v;
+                        fulfilled(v);
+                    },(error)=>{
+                        this.value = error;
+                        rejected(error);
+                    });
+                }else {
+                    this.value = val;
+                    fulfilled(val);
+                }
+            }
+            setTimeout(() => {
+                run();
+            });
         }
 
         _reject(error:any) {
-
+            if( this.status !== PENDING) return;
+            const run = ()=>{
+                this.status = REJECTED; 
+                this.value = error;
+                let cb = this.rejectQueues.shift();
+                while(cb) {
+                    cb(error);
+                    cb = this.rejectQueues.shift();
+                }
+            }
+            setTimeout(() => {
+                run();
+            });
         }
 
         then(onFulfilled,onRejected) {
-            return new MyPromiseA((onFulfilledNext,onRejectedNext)=>{
+            const { value,status } = this;
+            return new MyPromiseA((resolve,reject)=>{
                 const fulfilled =  (val:any)=>{
-                    
+                    try {
+                        const res = onFulfilled(val);
+                        if(res instanceof MyPromiseA) {
+                            res.then(resolve,reject);
+                        }else {
+                            resolve(res);
+                        }
+                    } catch (error) {
+                        reject(error);
+                    }
                 }
+
+                const rejected = (error)=>{
+                    try {
+                        const res = onRejected(error);
+                        if(res instanceof MyPromiseA) {
+                            res.then(resolve,reject);
+                        }else {
+                            reject(res);
+                        }
+                    } catch (error) {
+                        reject(error);
+                    }
+                }
+
+                switch (status) {
+                    case PENDING:
+                        this.fulfillQueues.push(fulfilled);
+                        this.rejectQueues.push(rejected);
+                        break;
+                    case FULFILLED:
+                        fulfilled(value);
+                        break;
+                    case REJECTED:
+                        rejected(value);
+                        break;
+                }
+                
             });
         }
 
