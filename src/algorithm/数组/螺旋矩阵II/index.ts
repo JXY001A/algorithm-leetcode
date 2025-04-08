@@ -30,7 +30,11 @@ export function generateMatrix(n: number): number[][] {
         startY+=1;
 
         offset+=1;
+        loop-=1;
     }
 
+    if(n%2!==0) {
+        result[mid][mid] = count;
+    }
     return result;
 };
