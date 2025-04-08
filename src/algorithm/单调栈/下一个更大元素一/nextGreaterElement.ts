@@ -8,13 +8,11 @@ export function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
   const stack:number[] = [0];
   for(let i=1;i<nums2.length;i+=1) {
     let stackTopIndex = stack.length-1; 
-    if(nums2[stack[stackTopIndex]]<nums2[i]) {
-      while(stack.length>0 && nums2[stack[stackTopIndex]]<nums2[i]) {
-        const stackTopValue = nums2[stack[stackTopIndex]];
-        allAns[stackTopValue] = i;
-        stack.pop();
-        stackTopIndex-=1;
-      }
+    while(stack.length>0 && nums2[stack[stackTopIndex]]<nums2[i]) {
+      const stackTopValue = nums2[stack[stackTopIndex]];
+      allAns[stackTopValue] = i;
+      stack.pop();
+      stackTopIndex-=1;
     }
     stack.push(i);
   }
